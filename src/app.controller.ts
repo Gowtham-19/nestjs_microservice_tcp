@@ -20,6 +20,7 @@ export class AppController {
   @EventPattern('response_event')
   async handleBookCreatedEventResponse(response) {
     console.log("response of event from rabbitmq",response);
+    return true
   }
 
 }
