@@ -8,7 +8,8 @@ export class AppService {
     return 'Hello World!';
   }
 
-  async publishEvent(body) {
+  //publishing message to rabbitmq 
+  publishEvent(body) {
     this.rabbitmq_service.emit('book-created', body);
   }
 }

@@ -11,12 +11,15 @@ export class AppController {
     return this.appService.getHello();
   }
 
+    //api trigger to rabbitmq service
   @Post()
   getData(@Body() body){
     this.appService.publishEvent(body)
+    //returning reponse by with out any waiting for service result
     return {"message":"data received"}
   }
 
+  //event to receive reponse from rabbitmq service
   @EventPattern('response_event')
   async handleBookCreatedEventResponse(response) {
     console.log("response of event from rabbitmq",response);
