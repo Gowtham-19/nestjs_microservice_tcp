@@ -4,13 +4,13 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  // app.connectMicroservice({
-  //   transport:Transport.TCP,
-  //   options:{
-  //     port:3002
-  //   }
-  // });
-  // await app.startAllMicroservices();
+  app.connectMicroservice({
+    transport:Transport.TCP,
+    options:{
+      port:3003
+    }
+  });
+  await app.startAllMicroservices();
   await app.listen(3002);
 }
 bootstrap();
