@@ -6,7 +6,7 @@ import { AppService } from './app.service';
 @Module({
   imports: [
     ClientsModule.register([{
-      name: 'GREETING_SERVICE',
+      name: 'RabbitMQ_Service',
       transport: Transport.RMQ,
       options: {
         urls: ['amqp://localhost:5672'],

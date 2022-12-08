@@ -13,14 +13,13 @@ export class AppController {
 
   @Post()
   getData(@Body() body){
-    console.log("data of received body",body)
     this.appService.publishEvent(body)
     return {"message":"data received"}
   }
 
-  @EventPattern('book_created')
+  @EventPattern('response_event')
   async handleBookCreatedEventResponse(response) {
-    console.log("response of event",response);
+    console.log("response of event from rabbitmq",response);
   }
 
 }
